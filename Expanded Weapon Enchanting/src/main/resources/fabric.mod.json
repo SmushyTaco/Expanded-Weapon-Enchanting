@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "expanded_weapon_enchanting",
+  "version": "${version}",
+  "name": "Expanded Weapon Enchanting",
+  "description": "This mod allows you to mix different weapon enchantment types on the same weapon.",
+  "authors": [
+    "SmushyTaco"
+  ],
+  "contact": {
+    "homepage": "https://www.smushytaco.com/",
+    "issues": "https://www.curseforge.com/minecraft/mc-mods/expanded-weapon-enchanting/issues/",
+    "sources": "https://github.com/realSmushyTaco/Expanded-Weapon-Enchanting/"
+  },
+  "license": "GNU Lesser General Public License version 3 (LGPLv3)",
+  "icon": "assets/expanded_armor_enchanting/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.smushytaco.expanded_weapon_enchanting.ExpandedWeaponEnchanting"
+      }
+    ],
+    "modmenu": [
+      "com.smushytaco.expanded_weapon_enchanting.configuration_support.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "expanded_weapon_enchanting.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "fabric-language-kotlin": ">=1.6.0+kotlin.1.5.0",
+    "minecraft": "1.16.x",
+    "cloth-config2": ">=4.11.24"
+  },
+  "suggests": {
+    "modmenu": ">=1.14.13+build.22"
+  }
+}
