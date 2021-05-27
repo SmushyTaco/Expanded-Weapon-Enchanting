@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.smushytaco.expanded_weapon_enchanting.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "WeaponEnchantmentTypesCanBeMixed"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
