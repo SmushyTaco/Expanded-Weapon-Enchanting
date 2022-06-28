@@ -30,14 +30,14 @@
     "expanded_weapon_enchanting.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.12.12",
+    "fabricloader": ">=0.14.0",
     "fabric": "*",
-    "fabric-language-kotlin": ">=1.7.1+kotlin.1.6.10",
-    "minecraft": "1.18.x",
-    "cloth-config2": ">=6.1.48",
+    "fabric-language-kotlin": ">=1.8.1+kotlin.1.7.0",
+    "minecraft": "1.19.x",
+    "cloth-config2": ">=7.0.72",
     "java": ">=17"
   },
   "suggests": {
-    "modmenu": ">=3.0.1"
+    "modmenu": ">=4.0.0"
   }
 }

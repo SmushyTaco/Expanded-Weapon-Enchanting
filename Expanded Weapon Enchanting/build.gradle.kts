@@ -11,7 +11,7 @@ val modVersion: String by project
 version = modVersion
 val mavenGroup: String by project
 group = mavenGroup
-minecraft {}
+
 repositories {
     maven("https://maven.shedaniel.me/")
     maven("https://maven.terraformersmc.com/")
@@ -42,8 +42,8 @@ tasks {
     }
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions { jvmTarget = javaVersion.toString() }
-        sourceCompatibility = javaVersion.toString()
-        targetCompatibility = javaVersion.toString()
+        java.sourceCompatibility = javaVersion
+        java.targetCompatibility = javaVersion
     }
     jar { from("LICENSE") { rename { "${it}_${base.archivesName}" } } }
     processResources {
