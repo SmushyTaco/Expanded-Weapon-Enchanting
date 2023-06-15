@@ -22,6 +22,12 @@
         "value": "com.smushytaco.expanded_weapon_enchanting.ExpandedWeaponEnchanting"
       }
     ],
+    "preLaunch": [
+      {
+        "adapter": "kotlin",
+        "value": "com.smushytaco.expanded_weapon_enchanting.ExpandedWeaponEnchantingPreLaunch"
+      }
+    ],
     "modmenu": [
       "com.smushytaco.expanded_weapon_enchanting.configuration_support.ModMenuIntegration"
     ]
@@ -35,7 +41,8 @@
     "fabric-language-kotlin": ">=${fabric_language_kotlin}",
     "minecraft": ">=${minecraft}",
     "java": ">=${java}",
-    "cloth-config2": ">=${clothconfig}"
+    "cloth-config2": ">=${clothconfig}",
+    "com_github_llamalad7_mixinextras": ">=${mixinextras}"
   },
   "suggests": {
     "modmenu": ">=${modmenu}"
