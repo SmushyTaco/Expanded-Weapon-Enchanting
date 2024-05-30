@@ -8,6 +8,5 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(DamageEnchantment.class)
 public abstract class WeaponEnchantmentTypesCanBeMixed {
     @ModifyReturnValue(method = "canAccept", at = @At("RETURN"))
-    @SuppressWarnings("unused")
     private boolean hookCanAccept(boolean original, Enchantment other) { return ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanMixDifferentWeaponEnchantmentTypes() || original; }
 }
