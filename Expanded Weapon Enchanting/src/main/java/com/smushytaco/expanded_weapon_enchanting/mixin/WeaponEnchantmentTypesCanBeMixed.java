@@ -15,14 +15,20 @@ public abstract class WeaponEnchantmentTypesCanBeMixed {
     public boolean hookIsAcceptableItem(boolean original, ItemStack stack) {
         Enchantment enchantment = (Enchantment) (Object) this;
         if (ExpandedWeaponEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.IMPALING)) {
-            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanMixDifferentWeaponEnchantmentTypes() || !(stack.getItem() instanceof SwordItem)) return original;
+            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseImpalingOnWeapon() || !(stack.getItem() instanceof SwordItem)) return original;
+            return true;
+        } else if (ExpandedWeaponEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.DENSITY)) {
+            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseDensityOnWeapon() || !(stack.getItem() instanceof SwordItem)) return original;
+            return true;
+        } else if (ExpandedWeaponEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.BREACH)) {
+            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseBreachOnWeapon() || !(stack.getItem() instanceof SwordItem)) return original;
+            return true;
+        } else if (ExpandedWeaponEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.WIND_BURST)) {
+            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseWindBurstOnWeapon() || !(stack.getItem() instanceof SwordItem)) return original;
             return true;
         }
         return original;
     }
     @ModifyReturnValue(method = "canBeCombined", at = @At("RETURN"))
-    private static boolean hookCanBeCombined(boolean original, RegistryEntry<Enchantment> first, RegistryEntry<Enchantment> second) {
-        if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanMixDifferentWeaponEnchantmentTypes()) return original;
-        return original || ExpandedWeaponEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.SHARPNESS, Enchantments.SMITE, Enchantments.BANE_OF_ARTHROPODS, Enchantments.IMPALING));
-    }
+    private static boolean hookCanBeCombined(boolean original, RegistryEntry<Enchantment> first, RegistryEntry<Enchantment> second) { return original || ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanMixDifferentWeaponEnchantmentTypes() && ExpandedWeaponEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.SHARPNESS, Enchantments.SMITE, Enchantments.BANE_OF_ARTHROPODS)); }
 }
