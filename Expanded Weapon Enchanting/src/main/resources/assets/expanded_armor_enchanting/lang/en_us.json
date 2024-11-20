@@ -1,4 +1,8 @@
 {
   "text.autoconfig.expanded_weapon_enchanting.title": "Expanded Weapon Enchanting Configuration",
+  "text.autoconfig.expanded_weapon_enchanting.option.canUseImpalingOnWeapon": "Can Use Impaling On Weapon",
+  "text.autoconfig.expanded_weapon_enchanting.option.canUseDensityOnWeapon": "Can Use Density On Weapon",
+  "text.autoconfig.expanded_weapon_enchanting.option.canUseBreachOnWeapon": "Can Use Breach On Weapon",
+  "text.autoconfig.expanded_weapon_enchanting.option.canUseWindBurstOnWeapon": "Can Use Wind Burst On Weapon",
   "text.autoconfig.expanded_weapon_enchanting.option.canMixDifferentWeaponEnchantmentTypes": "Can Mix Different Weapon Enchantment Types"
 }
