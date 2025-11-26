@@ -12,7 +12,7 @@
     "issues": "https://www.curseforge.com/minecraft/mc-mods/expanded-weapon-enchanting/issues/",
     "sources": "https://github.com/SmushyTaco/Expanded-Weapon-Enchanting/"
   },
-  "license": "GNU Lesser General Public License version 3 (LGPLv3)",
+  "license": "Apache-2.0",
   "icon": "assets/expanded_armor_enchanting/icon.png",
   "environment": "*",
   "entrypoints": {
