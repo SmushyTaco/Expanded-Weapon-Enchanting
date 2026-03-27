@@ -16,7 +16,7 @@ object ExpandedWeaponEnchanting : ModInitializer {
     override fun onInitialize() {
         ServerLifecycleEvents.SERVER_STARTED.register { server -> dynamicRegistryManager = server.registryAccess() }
     }
-    fun isWeapon(item: ItemStack) = dynamicRegistryManager?.lookupOrThrow(Registries.ITEM)?.getOrThrow(ItemTags.WEAPON_ENCHANTABLE)?.contains(item.itemHolder) ?: false
+    fun isWeapon(item: ItemStack) = dynamicRegistryManager?.lookupOrThrow(Registries.ITEM)?.getOrThrow(ItemTags.WEAPON_ENCHANTABLE)?.contains(item.typeHolder()) ?: false
     fun isSameEnchantment(enchantment: Enchantment, enchantmentRegistryKey: ResourceKey<Enchantment>) = dynamicRegistryManager?.lookup(Registries.ENCHANTMENT)?.getOrNull()?.wrapAsHolder(enchantment)?.`is`(enchantmentRegistryKey) ?: false
     fun canCombineEnchantments(first: Holder<Enchantment>, second: Holder<Enchantment>, enchantments: Set<ResourceKey<Enchantment>>) = enchantments.any { first.`is`(it) } && enchantments.any { second.`is`(it) } && (second.unwrapKey().getOrNull()?.let { !first.`is`(it) } ?: true)
 }
