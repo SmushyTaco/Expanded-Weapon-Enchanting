@@ -11,23 +11,23 @@ import java.util.Set;
 @Mixin(Enchantment.class)
 public abstract class WeaponEnchantmentTypesCanBeMixed {
     @ModifyReturnValue(method = "canEnchant", at = @At("RETURN"))
-    public boolean hookIsAcceptableItem(boolean original, ItemStack stack) {
+    public boolean hookIsAcceptableItem(boolean original, ItemStack itemStack) {
         Enchantment enchantment = (Enchantment) (Object) this;
         if (ExpandedWeaponEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.IMPALING)) {
-            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseImpalingOnWeapon() || !ExpandedWeaponEnchanting.INSTANCE.isWeapon(stack)) return original;
+            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseImpalingOnWeapon() || !ExpandedWeaponEnchanting.INSTANCE.isWeapon(itemStack)) return original;
             return true;
         } else if (ExpandedWeaponEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.DENSITY)) {
-            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseDensityOnWeapon() || !ExpandedWeaponEnchanting.INSTANCE.isWeapon(stack)) return original;
+            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseDensityOnWeapon() || !ExpandedWeaponEnchanting.INSTANCE.isWeapon(itemStack)) return original;
             return true;
         } else if (ExpandedWeaponEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.BREACH)) {
-            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseBreachOnWeapon() || !ExpandedWeaponEnchanting.INSTANCE.isWeapon(stack)) return original;
+            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseBreachOnWeapon() || !ExpandedWeaponEnchanting.INSTANCE.isWeapon(itemStack)) return original;
             return true;
         } else if (ExpandedWeaponEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.WIND_BURST)) {
-            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseWindBurstOnWeapon() || !ExpandedWeaponEnchanting.INSTANCE.isWeapon(stack)) return original;
+            if (!ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanUseWindBurstOnWeapon() || !ExpandedWeaponEnchanting.INSTANCE.isWeapon(itemStack)) return original;
             return true;
         }
         return original;
     }
     @ModifyReturnValue(method = "areCompatible", at = @At("RETURN"))
-    private static boolean hookCanBeCombined(boolean original, Holder<Enchantment> first, Holder<Enchantment> second) { return original || ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanMixDifferentWeaponEnchantmentTypes() && ExpandedWeaponEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.SHARPNESS, Enchantments.SMITE, Enchantments.BANE_OF_ARTHROPODS)); }
+    private static boolean hookCanBeCombined(boolean original, Holder<Enchantment> enchantment, Holder<Enchantment> other) { return original || ExpandedWeaponEnchanting.INSTANCE.getConfig().getCanMixDifferentWeaponEnchantmentTypes() && ExpandedWeaponEnchanting.INSTANCE.canCombineEnchantments(enchantment, other, Set.of(Enchantments.SHARPNESS, Enchantments.SMITE, Enchantments.BANE_OF_ARTHROPODS)); }
 }
